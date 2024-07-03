@@ -1492,6 +1492,27 @@ describe('invalid results', function () {
         invalid('CxDDSH8gS7jecsxaRL8Txf8H5kqesLXAEAEgp76Yz632J9M', 'dot');
     });
 
+    it('should return false for incorrect celo addresses', function () {
+        commonTests('celo');
+        invalid('1jQPKJmghHbrRhUiMt2cNEuxYbR6S9vYtJKqYvE4PNR9WDB', 'dot');
+    });
+
+    it('should return true for correct celo addresses', function () {
+        commonTests('celo');
+        valid('0x866a0052df398d3cbc5828038083cc04eb0f1e0f', 'celo');
+    });
+
+
+    // BASECHAIN
+    it('should return TRUE for correct BASECHAIN addresses', function () {
+        commonTests('BASECHAIN');
+        valid('0x866a0052df398d3cbc5828038083cc04eb0f1e0f', 'BASECHAIN');
+    });
+
+    it('should return FALSE for in correct BASECHAIN addresses', function () {
+        commonTests('BASECHAIN');
+        invalid('1jQPKJmghHbrRhUiMt2cNEuxYbR6S9vYtJKqYvE4PNR9WDB', 'BASECHAIN');
+    });
 
 });
 

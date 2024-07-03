@@ -548,6 +548,17 @@ var CURRENCIES = [{
         validator: ETHValidator
     },
     {
+        name: 'CELO',
+        symbol: 'celo',
+        validator: ETHValidator
+    },
+
+    {
+        name: 'BASECHAIN',
+        symbol: 'BASECHAIN',
+        validator: ETHValidator
+    },
+    {
         name: 'Algorand',
         symbol: 'algo',
         validator: AlgoValidator

@@ -1,5 +1,5 @@
 {
-    "name": "multicoin-address-validator",
+    "name": "validate-wallet",
     "description": "Multicoin address validator for Bitcoin and other Altcoins.",
     "keywords": [
         "0x","zrx",
@@ -32,6 +32,7 @@
         "Cred","lba",
         "Crypto.com Coin","cro",
         "CUSD","cusd",
+        "CELO","celo",
         "Dash","dash",
         "Decentraland","mana",
         "Decred","dcr",
@@ -126,13 +127,13 @@
         "ZClassic","zcl",
         "ZenCash","zen"
     ],
-    "version": "0.5.13",
-    "author": "Chris <chris.tsim@gmail.com>",
-    "homepage": "https://github.com/christsim/multicoin-address-validator",
+    "version": "0.5.14",
+    "author": "Bereket <bereketgebredingle@gmail.com>",
+    "homepage": "https://github.com/Bereket-G/validate-wallet",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/christsim/multicoin-address-validator.git"
+        "url": "https://github.com/Bereket-G/validate-wallet.git"
     },
     "main": "src/wallet_address_validator",
     "engines": {
