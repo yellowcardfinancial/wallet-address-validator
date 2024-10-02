@@ -127,7 +127,7 @@
         "ZClassic","zcl",
         "ZenCash","zen"
     ],
-    "version": "0.5.14",
+    "version": "0.5.15",
     "author": "Bereket <bereketgebredingle@gmail.com>",
     "homepage": "https://github.com/Bereket-G/validate-wallet",
     "license": "MIT",
