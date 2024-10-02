@@ -13,6 +13,7 @@ var EOSValidator = require('./eos_validator');
 var XTZValidator = require('./tezos_validator');
 var USDTValidator = require('./usdt_validator');
 var AlgoValidator = require('./algo_validator');
+var TONValidator = require('./ton_validator');
 var DotValidator = require('./dot_validator');
 var BIP173Validator = require('./bip173_validator')
 var Base58Validator = require('./base58_validator')
@@ -609,6 +610,11 @@ var CURRENCIES = [{
         name: 'Flare',
         symbol: 'flr',
         validator: ETHValidator,
+    },
+    {
+        name: 'Ton',
+        symbol: 'ton',
+        validator: TONValidator,
     },
 ];
 
