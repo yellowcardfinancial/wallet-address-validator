@@ -1,5 +1,5 @@
 {
-    "name": "validate-wallet",
+    "name": "@yellowcard/validate-wallet",
     "description": "Multicoin address validator for Bitcoin and other Altcoins.",
     "keywords": [
         "0x","zrx",
@@ -127,13 +127,13 @@
         "ZClassic","zcl",
         "ZenCash","zen"
     ],
-    "version": "0.5.14",
+    "version": "0.5.15",
     "author": "Bereket <bereketgebredingle@gmail.com>",
-    "homepage": "https://github.com/Bereket-G/validate-wallet",
+    "homepage": "https://github.com/yellowcardfinancial/wallet-address-validator",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Bereket-G/validate-wallet.git"
+        "url": "https://github.com/yellowcardfinancial/wallet-address-validator"
     },
     "main": "src/wallet_address_validator",
     "engines": {

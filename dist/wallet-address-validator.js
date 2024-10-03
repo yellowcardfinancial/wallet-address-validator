@@ -11889,6 +11889,7 @@ var EOSValidator = require('./eos_validator');
 var XTZValidator = require('./tezos_validator');
 var USDTValidator = require('./usdt_validator');
 var AlgoValidator = require('./algo_validator');
+var TONValidator = require('./ton_validator');
 var DotValidator = require('./dot_validator');
 var BIP173Validator = require('./bip173_validator')
 var Base58Validator = require('./base58_validator')
@@ -12486,6 +12487,11 @@ var CURRENCIES = [{
         symbol: 'flr',
         validator: ETHValidator,
     },
+    {
+        name: 'Ton',
+        symbol: 'ton',
+        validator: TONValidator,
+    },
 ];
 
 
@@ -12513,7 +12519,7 @@ var CURRENCIES = [{
 //
 
 
-},{"./ada_validator":37,"./algo_validator":38,"./base58_validator":39,"./bch_validator":40,"./bip173_validator":41,"./bitcoin_validator":42,"./dot_validator":54,"./eos_validator":55,"./ethereum_validator":56,"./monero_validator":57,"./nano_validator":58,"./nem_validator":59,"./ripple_validator":60,"./siacoin_validator":61,"./stellar_validator":62,"./tezos_validator":63,"./tron_validator":64,"./usdt_validator":65}],54:[function(require,module,exports){
+},{"./ada_validator":37,"./algo_validator":38,"./base58_validator":39,"./bch_validator":40,"./bip173_validator":41,"./bitcoin_validator":42,"./dot_validator":54,"./eos_validator":55,"./ethereum_validator":56,"./monero_validator":57,"./nano_validator":58,"./nem_validator":59,"./ripple_validator":60,"./siacoin_validator":61,"./stellar_validator":62,"./tezos_validator":63,"./ton_validator":64,"./tron_validator":65,"./usdt_validator":66}],54:[function(require,module,exports){
 const cryptoUtils = require('./crypto/utils');
 
 // from https://github.com/paritytech/substrate/wiki/External-Address-Format-(SS58)
@@ -12889,6 +12895,43 @@ module.exports = {
 },{"./crypto/base58":44,"./crypto/utils":52}],64:[function(require,module,exports){
 var cryptoUtils = require('./crypto/utils');
 
+const regexp = new RegExp("^(EQ|UQ)[A-Za-z0-9_-]{46,48}$")
+
+module.exports = {
+    isValidAddress: function (address) {
+        if (!regexp.test(address)) {
+            // Check if it has the basic requirements of an address
+            return false;
+        }
+
+        // Otherwise check each case
+        // return this.verifyChecksum(address);
+
+				return true;
+    },
+
+		// TODO: Figure out the checksum for ton addresses
+    verifyChecksum: function (address) {
+        // Check each case
+        address = address.replace('0x','');
+
+        var addressHash = cryptoUtils.keccak256(address.toLowerCase());
+
+        for (var i = 0; i < 40; i++ ) {
+            // The nth letter should be uppercase if the nth digit of casemap is 1
+            if ((parseInt(addressHash[i], 16) > 7 && address[i].toUpperCase() !== address[i]) ||
+                (parseInt(addressHash[i], 16) <= 7 && address[i].toLowerCase() !== address[i])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
+
+},{"./crypto/utils":52}],65:[function(require,module,exports){
+var cryptoUtils = require('./crypto/utils');
+
 function decodeBase58Address(base58Sting) {
     if (typeof (base58Sting) !== 'string') {
         return false;
@@ -12950,7 +12993,7 @@ module.exports = {
     }
 };
 
-},{"./crypto/utils":52}],65:[function(require,module,exports){
+},{"./crypto/utils":52}],66:[function(require,module,exports){
 var BTCValidator = require('./bitcoin_validator');
 var ETHValidator = require('./ethereum_validator');
 
@@ -12973,7 +13016,7 @@ module.exports = {
     }
 };
 
-},{"./bitcoin_validator":42,"./ethereum_validator":56}],66:[function(require,module,exports){
+},{"./bitcoin_validator":42,"./ethereum_validator":56}],67:[function(require,module,exports){
 var currencies = require('./currencies');
 
 var DEFAULT_CURRENCY_NAME = 'bitcoin';
@@ -13000,5 +13043,5 @@ module.exports = {
     }
 };
 
-},{"./currencies":53}]},{},[66])(66)
+},{"./currencies":53}]},{},[67])(67)
 });
